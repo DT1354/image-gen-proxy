@@ -7,7 +7,7 @@
 ```
 前端 (Vue) → 后端 (FastAPI) → apimart.ai API
    ↓              ↓
-Cloudflare     Cloudflare 服务器
+Cloudflare or 其他      服务器
 ```
 
 ## 功能特性
@@ -46,7 +46,7 @@ npm install
 # 构建
 VITE_API_BASE=https://api.your-domain.com npm run build
 
-# 上传 dist 目录到 Cloudflare Pages
+# 部署
 ```
 
 ## API 接口
