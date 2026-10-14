@@ -5,6 +5,8 @@ import api from '../api'
 
 const auth = useAuth()
 
+const API_BASE = import.meta.env.VITE_API_BASE || ''
+
 const mode = ref('text2img')
 const prompt = ref('')
 const referenceImage = ref(null)
@@ -243,7 +245,7 @@ function openFullSize(url) {
 
         <div v-if="images.length" class="results">
           <div v-for="(img, index) in images" :key="index" class="result-item">
-            <img :src="img" @click="openFullSize(img)" />
+            <img :src="`${API_BASE}${img}`" @click="openFullSize(`${API_BASE}${img}`)" />
             <div class="result-actions">
               <button @click="downloadImage(img)" class="btn">⬇️ 下载</button>
             </div>
@@ -267,7 +269,7 @@ function openFullSize(url) {
 
     <!-- 全屏图片 -->
     <div v-if="fullSizeImage" @click="fullSizeImage = null" class="fullscreen">
-      <img :src="fullSizeImage" />
+      <img :src="`${API_BASE}${fullSizeImage}`" />
       <button class="fullscreen-close">✕</button>
     </div>
   </div>

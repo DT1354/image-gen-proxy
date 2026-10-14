@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue'
 import api from '../api'
 
+const API_BASE = import.meta.env.VITE_API_BASE || ''
 const images = ref([])
 const loading = ref(true)
 
@@ -51,7 +52,7 @@ async function downloadImage(url) {
 
     <div v-else class="grid">
       <div v-for="img in images" :key="img.id" class="grid-item card">
-        <img :src="`/images/${img.filename}`" />
+        <img :src="`${API_BASE}/images/${img.filename}`" />
         <div class="item-info">
           <div class="item-prompt">{{ img.prompt || '无提示词' }}</div>
           <div class="item-meta">
