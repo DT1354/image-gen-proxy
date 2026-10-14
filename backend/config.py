@@ -25,7 +25,15 @@ class Settings:
     DAILY_LIMIT: int = int(os.environ.get("DAILY_LIMIT", "10"))
 
     # CORS
-    CORS_ORIGINS: list = os.environ.get("CORS_ORIGINS", "http://localhost:5173").split(",")
+    CORS_ORIGINS: list = os.environ.get("CORS_ORIGINS", "http://localhost:5173,https://image.050134.xyz,https://image-gen-proxy.pages.dev").split(",")
+
+    # JWT配置
+    JWT_SECRET: str = os.environ.get("JWT_SECRET", "your-secret-key-change-in-production")
+    JWT_ALGORITHM: str = "HS256"
+    JWT_EXPIRE_HOURS: int = int(os.environ.get("JWT_EXPIRE_HOURS", "72"))
+
+    # 数据库配置
+    DATABASE_PATH: Path = Path(os.environ.get("DATABASE_PATH", "/var/www/image-gen-proxy/users.db"))
 
 
 settings = Settings()

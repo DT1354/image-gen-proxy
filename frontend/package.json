@@ -1,6 +1,6 @@
 {
   "name": "image-gen-frontend",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "vue": "^3.4.38",
+    "vue-router": "^4.4.3",
+    "pinia": "^2.2.2",
     "axios": "^1.7.7"
   },
   "devDependencies": {
